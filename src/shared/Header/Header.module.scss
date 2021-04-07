@@ -1,34 +1,36 @@
 @import "../../scss/variables.scss";
 
 .header {
-    height: 100px;
-    background-color: $choco;
+  height: 100px;
+  background-color: $choco;
+  position: relative;
+  z-index: 2;
 }
 
 .wrapper {
-    width: 1140px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
+  width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 .logo {
-    text-decoration: none;
-    font-family: 'Berkshire Swash', cursive;
-    font-size: 38px;
-    color: $logo;
+  text-decoration: none;
+  font-family: "Berkshire Swash", cursive;
+  font-size: 38px;
+  color: $logo;
 }
 .nav__link {
-    margin-right: 115px;
-    font-size: 24px;
-    text-decoration: none;
-    font-family: 'Noto Serif', serif;
-    color: #FFF6D4;
+  margin-right: 115px;
+  font-size: 24px;
+  text-decoration: none;
+  font-family: "Noto Serif", serif;
+  color: #fff6d4;
 }
 .nav__link:last-child {
-    margin-right: 0px;
+  margin-right: 0px;
 }
 .selected {
-    color: #C7A665;
+  color: #c7a665;
 }

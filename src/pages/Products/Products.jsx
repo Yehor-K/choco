@@ -2,7 +2,8 @@ import { React, useRef, useState, useEffect } from "react";
 import ChocoItem from "../../shared/ChocoItem";
 import { useSelector, useDispatch } from "react-redux";
 import { requestChoco } from "../../store/actions/asyncActions/asyncActions";
-
+import "./Products.scss";
+import { NavLink, Link } from "react-router-dom";
 
 function Products() {
   const dispatch = useDispatch();
@@ -10,11 +11,15 @@ function Products() {
   useEffect(() => {
     dispatch(requestChoco());
   }, []);
-  console.log(chocos, "то что получили в компоненте из редакса");
+  // console.log(chocos, "то что получили в компоненте из редакса");
   return (
     <>
-      <div className="wrapper">
-        {chocos ? chocos.map((oneChoco) => <ChocoItem choco={oneChoco} key={oneChoco.id}/>) : null}
+      <div className="wrapper products">
+        {chocos
+          ? chocos.map((oneChoco) => (
+              <ChocoItem choco={oneChoco} key={oneChoco.id} />
+            ))
+          : null}
       </div>
     </>
   );
