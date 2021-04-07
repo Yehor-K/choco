@@ -1,7 +1,7 @@
 import { React, useRef, useState, useEffect } from "react";
 import ChocoItem from "../../shared/ChocoItem";
 import { useSelector, useDispatch } from "react-redux";
-import { requestChoco } from "../../store/reducer/reducer";
+import { requestChoco } from "../../store/actions/asyncActions/asyncActions";
 
 
 function Products() {

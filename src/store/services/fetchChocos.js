@@ -1,7 +1,7 @@
 import fire from "../../firebase/firebaseConfig"
 
 export const fetchChocos = () => {
-    return new Promise((resolve) => {
+    const res = new Promise((resolve) => {
       let arr = [];
       const db = fire.database().ref("AllChoco");
       db.on("value", (snapshot) => {
@@ -13,4 +13,5 @@ export const fetchChocos = () => {
         resolve(arr);
       });
     });
+    return res
   };
