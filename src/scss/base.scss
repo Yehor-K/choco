@@ -1,3 +1,6 @@
+@import "./variables.scss";
+
+
 * {
   box-sizing: border-box;
 }
@@ -34,10 +37,15 @@ a {
   text-decoration: none;
   color: black;
 }
-.footer {
+footer {
   position: relative;
   z-index: 2;
+  min-height: 150px;
+  background-color: $choco;
+  display: flex;
+  align-items: center;
 }
+
 .helper {
   flex-grow: 1;
 }

@@ -1,16 +1,37 @@
 @import "../../scss/variables.scss";
 
 .footer {
-  position: relative;
-  z-index: 2;
-  min-height: 150px;
-  background-color: $choco;
+  font-size: 20px;
+  color: #fff6d4;
+  width: 1140px;
+  margin: 0 auto;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .contacts {
   display: flex;
   flex-direction: column;
+  p {
+    margin: 0px;
+    margin-bottom: 10px;
+  }
 }
 .number {
   display: flex;
+  img {
+    margin-right: 18px;
+  }
+}
+.instagram {
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0px;
+    margin-right: 40px;
+  }
+  a {
+    display: flex;
+    align-items: center;
+  }
 }
