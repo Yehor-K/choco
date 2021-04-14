@@ -1,10 +1,6 @@
-import React from 'react'
+import React from "react";
 
 function About() {
-  return (
-    <div className="wrapper">
-      about
-    </div>
-  )
+  return <div className="wrapper_content">about</div>;
 }
-export default About
+export default About;

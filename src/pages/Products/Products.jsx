@@ -14,13 +14,16 @@ function Products() {
   // console.log(chocos, "то что получили в компоненте из редакса");
   return (
     <>
-      <div className="wrapper products">
-        {chocos
-          ? chocos.map((oneChoco) => (
-              <ChocoItem choco={oneChoco} key={oneChoco.id} />
-            ))
-          : null}
-      </div>
+        <div className="wrapper__content">
+          <h1 className="title">Продукция</h1>
+          <div className="products">
+            {chocos
+              ? chocos.map((oneChoco) => (
+                  <ChocoItem choco={oneChoco} key={oneChoco.id} />
+                ))
+              : null}
+          </div>
+        </div>
     </>
   );
 }

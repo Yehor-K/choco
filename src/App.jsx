@@ -11,9 +11,16 @@ function App() {
   const { location } = useContext(__RouterContext);
   console.log(location);
   const transitions = useTransition(location, (location) => location.pathname, {
-    from: { opacity: 0, transform: "translate(0, 50%)" },
+    from: {
+      opacity: 0,
+      transform: "translate(0, 50%)",
+    },
     enter: { opacity: 1, transform: "translate(0%, 0)" },
-    leave: { opacity: 0, transform: "translate(0, 50%)" },
+    leave: {
+      opacity: 0,
+      transform: "translate(0, 50%)",
+      display: "none",
+    },
   });
   transitions.map(({ item, props, key }) =>
     console.log("transitions.map", item, props, key)

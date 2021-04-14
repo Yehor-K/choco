@@ -5,6 +5,7 @@ body,
 html {
   height: 100%;
   box-sizing: border-box;
+  font-family: "Noto Serif", serif;
 }
 
 .main-wrapper {
@@ -20,10 +21,23 @@ html {
   justify-content: space-between;
   height: 100%;
 }
+.wrapper__content {
+  position: relative;
+  width: 1040px;
+  margin: 0 auto;
+  height: 100%;
+}
 .main {
   flex-grow: 1;
 }
 a {
   text-decoration: none;
   color: black;
+}
+.footer {
+  position: relative;
+  z-index: 2;
+}
+.helper {
+  flex-grow: 1;
 }
