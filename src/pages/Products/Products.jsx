@@ -3,7 +3,7 @@ import ChocoItem from "../../shared/ChocoItem";
 import { useSelector, useDispatch } from "react-redux";
 import { requestChoco } from "../../store/actions/asyncActions/asyncActions";
 import "./Products.scss";
-import { NavLink, Link } from "react-router-dom";
+import { useTransition, animated } from "react-spring";
 
 function Products() {
   const dispatch = useDispatch();
@@ -11,19 +11,34 @@ function Products() {
   useEffect(() => {
     dispatch(requestChoco());
   }, []);
-  // console.log(chocos, "то что получили в компоненте из редакса");
+  const transitions = useTransition(chocos, (choco) => choco.id, {
+    from: {
+      opacity: 0,
+      transform: "translate(0, 50%)",
+    },
+    enter: { opacity: 1, transform: "translate(0%, 0)" },
+    leave: {
+      opacity: 0,
+      transform: "translate(0, 50%)",
+      display: "none",
+    },
+  });
+  console.log(transitions);
+  console.log(chocos, "то что получили в компоненте из редакса");
   return (
     <>
-        <div className="wrapper__content">
-          <h1 className="title">Продукция</h1>
-          <div className="products">
-            {chocos
-              ? chocos.map((oneChoco) => (
-                  <ChocoItem choco={oneChoco} key={oneChoco.id} />
-                ))
-              : null}
-          </div>
+      <div className="wrapper__content">
+        <h1 className="title">Продукция</h1>
+        <div className="products">
+          {transitions
+            ? transitions.map(({ item, props, key }) => (
+                <animated.div key={key} style={props}>
+                  <ChocoItem choco={item} key={key} />
+                </animated.div>
+              ))
+            : null}
         </div>
+      </div>
     </>
   );
 }

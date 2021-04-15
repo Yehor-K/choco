@@ -9,7 +9,6 @@ import { useTransition, animated } from "react-spring";
 
 function App() {
   const { location } = useContext(__RouterContext);
-  console.log(location);
   const transitions = useTransition(location, (location) => location.pathname, {
     from: {
       opacity: 0,
@@ -22,9 +21,6 @@ function App() {
       display: "none",
     },
   });
-  transitions.map(({ item, props, key }) =>
-    console.log("transitions.map", item, props, key)
-  );
   return transitions.map(({ item, props, key }) => (
     <animated.div key={key} style={props}>
       <Switch location={item}>
