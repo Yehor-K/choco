@@ -6,6 +6,7 @@ import Products from "./pages/Products/Products";
 import About from "./pages/About/About";
 import Contacts from "./pages/Contacts/Contacts";
 import { useTransition, animated } from "react-spring";
+import OneProduct from "./pages/OneProduct/OneProduct";
 
 function App() {
   const { location } = useContext(__RouterContext);
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/" component={Products} />
         <Route exact path="/about" component={About} />
         <Route exact path="/contacts" component={Contacts} />
+        <Route path="/chocolate/:id" component={OneProduct} />
       </Switch>
     </animated.div>
   ));

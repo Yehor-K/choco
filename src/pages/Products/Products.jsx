@@ -23,8 +23,6 @@ function Products() {
       display: "none",
     },
   });
-  console.log(transitions);
-  console.log(chocos, "то что получили в компоненте из редакса");
   return (
     <>
       <div className="wrapper__content">

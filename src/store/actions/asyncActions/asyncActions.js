@@ -1,4 +1,4 @@
-import { requestChocosSuccessful } from "../actions";
+import { requestChocosSuccessful } from "../actionsProducts";
 import { fetchChocos } from "../../services/fetchChocos";
 
 export const requestChoco = () => {
