@@ -1,6 +1,11 @@
 .oneProduct {
   display: flex;
   margin-bottom: 100px;
+  .product__img {
+    width: 390px;
+    height: 390px;
+    margin-right: 35px;
+  }
   img {
     width: 390px;
     height: 390px;

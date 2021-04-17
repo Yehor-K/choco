@@ -29,10 +29,7 @@ function Products() {
       transform: "translate(0, 50%)",
       display: "none",
     },
-    update: {
-      opacity: 0,
-      transform: "translate(0, 50%)",
-    },
+    update: { opacity: 1, transform: "translate(0%, 0)" },
   });
 
   const defimg = (e) => {
@@ -42,7 +39,69 @@ function Products() {
   console.log(transitions, "transitions");
   return (
     <div className="wrapper__content">
-      {chocolate ? (
+      <Link to={"/"} className="back-on-main">
+        <span>&#10229;</span>
+        <span>Вернуться назад</span>
+      </Link>
+      {chocolate
+        ? transitions.map(({ item, props, key }) => (
+            <animated.div key={key} style={props}>
+              {item ? (
+                <>
+                  <div className="oneProduct">
+                    <div className="product__img">
+                      <img
+                        src={item.image}
+                        alt={item ? item.name : null}
+                        onError={defimg}
+                      />
+                    </div>
+                    <div className="oneProduct__info">
+                      <h1 className="product__name">
+                        {item ? item.name : null}
+                      </h1>
+                      <p className="product__price">
+                        {item ? item.price : null}
+                        <span> грн.</span>
+                      </p>
+                      <p className="product__description">
+                        {item ? item.description : null}
+                      </p>
+                      <div className="product__otherInfo">
+                        <div className="table__row">
+                          <p className="info__name">Состав:</p>
+                          <p className="info__value">
+                            {item ? item.composition : null}
+                          </p>
+                        </div>
+                        <div className="table__row">
+                          <p className="info__name">Срок годности:</p>
+                          <p className="info__value">
+                            {item ? item.shelfLife : null}
+                          </p>
+                        </div>
+                        <div className="table__row">
+                          <p className="info__name">Вес:</p>
+                          <p className="info__value">
+                            {item ? item.weight : null}
+                          </p>
+                        </div>
+                        <div className="table__row">
+                          <p className="info__name">Условия хранения:</p>
+                          <p className="info__value">
+                            {item ? item.storageСonditions : null}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ) : null}
+            </animated.div>
+          ))
+        : null}
+
+      {/* {chocolate ? (
         <>
           <Link to={"/"} className="back-on-main">
             <span>&#10229;</span>
@@ -79,7 +138,7 @@ function Products() {
             </div>
           </div>
         </>
-      ) : null}
+      ) : null} */}
     </div>
   );
 }
