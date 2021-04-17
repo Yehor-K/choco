@@ -2,14 +2,19 @@
   display: flex;
   margin-bottom: 100px;
   .product__img {
-    width: 390px;
+    min-width: 390px;
     height: 390px;
     margin-right: 35px;
+    opacity: 0;
+    transition: opacity 500ms;
   }
   img {
     width: 390px;
     height: 390px;
     margin-right: 35px;
+  }
+  .loaded {
+    opacity: 1;
   }
 }
 .back-on-main {

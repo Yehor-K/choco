@@ -9,6 +9,15 @@
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   margin-bottom: 80px;
 }
+.chocoItem__imgWrapper {
+  min-height: 360px;
+  min-width: 370px;
+  opacity: 0;
+  transition: opacity 500ms;
+}
+.loaded {
+  opacity: 1;
+}
 .chocoItem__img {
   height: 360px;
   width: 370px;

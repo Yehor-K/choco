@@ -11,6 +11,7 @@ function Products() {
   useEffect(() => {
     dispatch(requestChoco());
   }, []);
+
   const transitions = useTransition(chocos, (choco) => choco.id, {
     from: {
       opacity: 0,
@@ -23,6 +24,8 @@ function Products() {
       display: "none",
     },
   });
+
+
   return (
     <>
       <div className="wrapper__content">

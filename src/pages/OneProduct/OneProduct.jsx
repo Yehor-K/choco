@@ -14,6 +14,7 @@ function Products() {
   const [chocolate, setChocolate] = useState();
   const { id } = useParams();
   //   const chocos = useSelector((state) => state.store.allChoco);
+  const myRef = useRef();
   useEffect(() => {
     fetchOneChocos(id).then((res) => setChocolate(res));
   }, [id]);
@@ -36,6 +37,14 @@ function Products() {
     const target = e.target;
     target.src = defpic;
   };
+  const isLoaded = (ref) => {
+    const el = ref.current;
+    const parentEl = el.parentElement;
+    console.log(parentEl);
+    if (parentEl) {
+      parentEl.classList.add("loaded");
+    }
+  };
   console.log(transitions, "transitions");
   return (
     <div className="wrapper__content">
@@ -54,6 +63,8 @@ function Products() {
                         src={item.image}
                         alt={item ? item.name : null}
                         onError={defimg}
+                        ref={myRef}
+                        onLoad={() => isLoaded(myRef)}
                       />
                     </div>
                     <div className="oneProduct__info">
