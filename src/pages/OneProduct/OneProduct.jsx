@@ -7,6 +7,7 @@ import { fetchOneChocos } from "../../store/services/fetchChocos";
 import { useParams } from "react-router-dom";
 import "./OneProduct.scss";
 import { Link } from "react-router-dom";
+import defpic from "../../img/def_img.png";
 
 function Products() {
   const dispatch = useDispatch();
@@ -16,8 +17,29 @@ function Products() {
   useEffect(() => {
     fetchOneChocos(id).then((res) => setChocolate(res));
   }, [id]);
-  console.log(chocolate);
 
+  const transitions = useTransition(chocolate, null, {
+    from: {
+      opacity: 0,
+      transform: "translate(0, 50%)",
+    },
+    enter: { opacity: 1, transform: "translate(0%, 0)" },
+    leave: {
+      opacity: 0,
+      transform: "translate(0, 50%)",
+      display: "none",
+    },
+    update: {
+      opacity: 0,
+      transform: "translate(0, 50%)",
+    },
+  });
+
+  const defimg = (e) => {
+    const target = e.target;
+    target.src = defpic;
+  };
+  console.log(transitions, "transitions");
   return (
     <div className="wrapper__content">
       {chocolate ? (
@@ -28,7 +50,7 @@ function Products() {
           </Link>
 
           <div className="oneProduct">
-            <img src={chocolate.image} alt="product" />
+            <img src={chocolate.image} alt={chocolate.name} onError={defimg} />
             <div className="oneProduct__info">
               <h1 className="product__name">{chocolate.name}</h1>
               <p className="product__price">
